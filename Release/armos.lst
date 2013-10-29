@@ -1,0 +1,128 @@
+
+armos.elf:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .init         0000000c  00008000  00008000  00008000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .text         000000cc  0000800c  0000800c  0000800c  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .fini         0000000c  000080d8  000080d8  000080d8  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  3 .eh_frame     00000004  000080e4  000080e4  000080e4  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  4 .init_array   00000004  000100e8  000100e8  000080e8  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  5 .fini_array   00000004  000100ec  000100ec  000080ec  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  6 .jcr          00000004  000100f0  000100f0  000080f0  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  7 .bss          0000001c  000100f4  000100f4  000080f4  2**2
+                  ALLOC
+  8 .comment      00000030  00000000  00000000  000080f4  2**0
+                  CONTENTS, READONLY
+  9 text          00000020  00000000  00000000  00008124  2**1
+                  CONTENTS, READONLY
+ 10 .ARM.attributes 00000027  00000000  00000000  00008144  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .init:
+
+00008000 <_init>:
+    8000:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+    8002:	bf00      	nop
+    8004:	bcf8      	pop	{r3, r4, r5, r6, r7}
+    8006:	bc08      	pop	{r3}
+    8008:	469e      	mov	lr, r3
+    800a:	4770      	bx	lr
+
+Disassembly of section .text:
+
+0000800c <main>:
+    800c:	e7fe      	b.n	800c <main>
+	...
+
+00008010 <deregister_tm_clones>:
+    8010:	b508      	push	{r3, lr}
+    8012:	f240 00f4 	movw	r0, #244	; 0xf4
+    8016:	4b07      	ldr	r3, [pc, #28]	; (8034 <deregister_tm_clones+0x24>)
+    8018:	f2c0 0001 	movt	r0, #1
+    801c:	1a1b      	subs	r3, r3, r0
+    801e:	2b06      	cmp	r3, #6
+    8020:	d800      	bhi.n	8024 <deregister_tm_clones+0x14>
+    8022:	bd08      	pop	{r3, pc}
+    8024:	f240 0300 	movw	r3, #0
+    8028:	f2c0 0300 	movt	r3, #0
+    802c:	2b00      	cmp	r3, #0
+    802e:	d0f8      	beq.n	8022 <deregister_tm_clones+0x12>
+    8030:	4798      	blx	r3
+    8032:	e7f6      	b.n	8022 <deregister_tm_clones+0x12>
+    8034:	000100f7 	.word	0x000100f7
+
+00008038 <register_tm_clones>:
+    8038:	b508      	push	{r3, lr}
+    803a:	f240 00f4 	movw	r0, #244	; 0xf4
+    803e:	f240 03f4 	movw	r3, #244	; 0xf4
+    8042:	f2c0 0001 	movt	r0, #1
+    8046:	f2c0 0301 	movt	r3, #1
+    804a:	1a1b      	subs	r3, r3, r0
+    804c:	109b      	asrs	r3, r3, #2
+    804e:	eb03 73d3 	add.w	r3, r3, r3, lsr #31
+    8052:	1059      	asrs	r1, r3, #1
+    8054:	d100      	bne.n	8058 <register_tm_clones+0x20>
+    8056:	bd08      	pop	{r3, pc}
+    8058:	f240 0200 	movw	r2, #0
+    805c:	f2c0 0200 	movt	r2, #0
+    8060:	2a00      	cmp	r2, #0
+    8062:	d0f8      	beq.n	8056 <register_tm_clones+0x1e>
+    8064:	4790      	blx	r2
+    8066:	e7f6      	b.n	8056 <register_tm_clones+0x1e>
+
+00008068 <__do_global_dtors_aux>:
+    8068:	b510      	push	{r4, lr}
+    806a:	f240 04f4 	movw	r4, #244	; 0xf4
+    806e:	f2c0 0401 	movt	r4, #1
+    8072:	7823      	ldrb	r3, [r4, #0]
+    8074:	b973      	cbnz	r3, 8094 <__do_global_dtors_aux+0x2c>
+    8076:	f7ff ffcb 	bl	8010 <deregister_tm_clones>
+    807a:	f240 0300 	movw	r3, #0
+    807e:	f2c0 0300 	movt	r3, #0
+    8082:	b12b      	cbz	r3, 8090 <__do_global_dtors_aux+0x28>
+    8084:	f248 00e4 	movw	r0, #32996	; 0x80e4
+    8088:	f2c0 0000 	movt	r0, #0
+    808c:	f3af 8000 	nop.w
+    8090:	2301      	movs	r3, #1
+    8092:	7023      	strb	r3, [r4, #0]
+    8094:	bd10      	pop	{r4, pc}
+    8096:	bf00      	nop
+
+00008098 <frame_dummy>:
+    8098:	b508      	push	{r3, lr}
+    809a:	f240 0300 	movw	r3, #0
+    809e:	f2c0 0300 	movt	r3, #0
+    80a2:	b14b      	cbz	r3, 80b8 <frame_dummy+0x20>
+    80a4:	f248 00e4 	movw	r0, #32996	; 0x80e4
+    80a8:	f240 01f8 	movw	r1, #248	; 0xf8
+    80ac:	f2c0 0000 	movt	r0, #0
+    80b0:	f2c0 0101 	movt	r1, #1
+    80b4:	f3af 8000 	nop.w
+    80b8:	f240 00f0 	movw	r0, #240	; 0xf0
+    80bc:	f2c0 0001 	movt	r0, #1
+    80c0:	6803      	ldr	r3, [r0, #0]
+    80c2:	b12b      	cbz	r3, 80d0 <frame_dummy+0x38>
+    80c4:	f240 0300 	movw	r3, #0
+    80c8:	f2c0 0300 	movt	r3, #0
+    80cc:	b103      	cbz	r3, 80d0 <frame_dummy+0x38>
+    80ce:	4798      	blx	r3
+    80d0:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
+    80d4:	f7ff bfb0 	b.w	8038 <register_tm_clones>
+
+Disassembly of section .fini:
+
+000080d8 <_fini>:
+    80d8:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+    80da:	bf00      	nop
+    80dc:	bcf8      	pop	{r3, r4, r5, r6, r7}
+    80de:	bc08      	pop	{r3}
+    80e0:	469e      	mov	lr, r3
+    80e2:	4770      	bx	lr

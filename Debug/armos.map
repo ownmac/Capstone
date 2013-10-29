@@ -1,0 +1,107 @@
+
+Discarded input sections
+
+ .data          0x00000000        0x0 src\init.o
+ .bss           0x00000000        0x0 src\init.o
+ .group         0x00000000        0x8 src\armos.o
+ .group         0x00000000        0x8 src\armos.o
+ .text          0x00000000        0x0 src\armos.o
+ .data          0x00000000        0x0 src\armos.o
+ .bss           0x00000000        0x0 src\armos.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x00000000         0x00100000
+RAM              0xa0000000         0x00100000
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD src\init.o
+LOAD src\armos.o
+
+.text           0x00000000       0x20
+ *(.text)
+ .text          0x00000000       0x20 src\init.o
+                0x0000000c                _start
+
+.glue_7         0x00000020        0x0
+ .glue_7        0x00000000        0x0 linker stubs
+
+.glue_7t        0x00000020        0x0
+ .glue_7t       0x00000000        0x0 linker stubs
+
+.vfp11_veneer   0x00000020        0x0
+ .vfp11_veneer  0x00000000        0x0 linker stubs
+
+.v4_bx          0x00000020        0x0
+ .v4_bx         0x00000000        0x0 linker stubs
+
+.iplt           0x00000020        0x0
+ .iplt          0x00000000        0x0 src\init.o
+
+.text.main      0x00000020       0x18
+ .text.main     0x00000020       0x18 src\armos.o
+                0x00000020                main
+
+.rel.dyn        0x00000038        0x0
+ .rel.iplt      0x00000000        0x0 src\init.o
+                0x10000000                . = 0x10000000
+
+.data
+ *(.data)
+
+.igot.plt       0x10000000        0x0
+ .igot.plt      0x00000000        0x0 src\init.o
+
+.bss
+ *(.bss)
+OUTPUT(armos.elf elf32-littlearm)
+
+.ARM.attributes
+                0x00000000       0x2f
+ .ARM.attributes
+                0x00000000       0x21 src\init.o
+ .ARM.attributes
+                0x00000021       0x33 src\armos.o
+
+.comment        0x00000000       0x30
+ .comment       0x00000000       0x30 src\armos.o
+                                 0x31 (size before relaxing)
+
+.debug_line     0x00000000      0x135
+ .debug_line    0x00000000       0x42 src\init.o
+ .debug_line    0x00000042       0xf3 src\armos.o
+
+.debug_info     0x00000000       0xf7
+ .debug_info    0x00000000       0x5c src\init.o
+ .debug_info    0x0000005c       0x9b src\armos.o
+
+.debug_abbrev   0x00000000       0x6c
+ .debug_abbrev  0x00000000       0x14 src\init.o
+ .debug_abbrev  0x00000014       0x58 src\armos.o
+
+.debug_aranges  0x00000000       0x40
+ .debug_aranges
+                0x00000000       0x20 src\init.o
+ .debug_aranges
+                0x00000020       0x20 src\armos.o
+
+.debug_loc      0x00000000       0x38
+ .debug_loc     0x00000000       0x38 src\armos.o
+
+.debug_ranges   0x00000000       0x10
+ .debug_ranges  0x00000000       0x10 src\armos.o
+
+.debug_macro    0x00000000      0xa40
+ .debug_macro   0x00000000       0x24 src\armos.o
+ .debug_macro   0x00000024      0x808 src\armos.o
+ .debug_macro   0x0000082c      0x214 src\armos.o
+
+.debug_str      0x00000000     0x29e7
+ .debug_str     0x00000000     0x29e7 src\armos.o
+                               0x2a8f (size before relaxing)
+
+.debug_frame    0x00000000       0x2c
+ .debug_frame   0x00000000       0x2c src\armos.o

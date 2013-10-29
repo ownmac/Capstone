@@ -1,0 +1,45 @@
+   1              	# 1 "../src/armos_init.S"
+   1              	/*
+   0              	
+   2              	
+   3              		This is the first assembly code written for cortex M3 mcu
+   4              	
+   5              	
+   6              	*/
+   7              	
+   8              	
+   9              	/* Set to thumb mode instructions*/
+  10              		.thumb
+  11              		.syntax	unified
+  12              		.global _start
+  13              	
+  14              		.equ	STACKINIT,	0x10000000
+  15              	
+  16              	
+  17              	
+  18              		.section	text
+  19              		.org	0
+  20              	/*Vectors*/
+  21 0000 00000010 		.word	STACKINIT
+  22 0004 01000000 		.word	_start+1
+  23 0008 17000000 		.word	_nmi_handler+1
+  24              	
+  25              	
+  26              	_start:
+  27 000c 4FF01001 		mov	r1, 0x10
+  28 0010 0860     		str	r0, [r1]
+  29 0012 FFF7FEFF 		bl	main
+  30              	
+  31              	_nmi_handler:
+  32 0016 4FF02001 		mov	r1, 0x20
+  33 001a 0860     		str	r0, [r1]
+  34 001c FFF7FBFF 		bl	_nmi_handler
+DEFINED SYMBOLS
+ ../src/armos_init.S:26     text:0000000c _start
+ ../src/armos_init.S:14     *ABS*:10000000 STACKINIT
+ ../src/armos_init.S:31     text:00000016 _nmi_handler
+                             text:00000000 $d
+ ../src/armos_init.S:27     text:0000000c $t
+
+UNDEFINED SYMBOLS
+main

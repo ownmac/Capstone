@@ -1,0 +1,412 @@
+
+Discarded input sections
+
+ .text          0x00000000        0x0 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crti.o
+ .data          0x00000000        0x0 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crti.o
+ .bss           0x00000000        0x0 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crti.o
+ .data          0x00000000        0x4 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crtbegin.o
+ .text          0x00000000        0x0 ./src/armos.o
+ .data          0x00000000        0x0 ./src/armos.o
+ .bss           0x00000000        0x0 ./src/armos.o
+ .text          0x00000000        0x0 ./src/armos_init.o
+ .data          0x00000000        0x0 ./src/armos_init.o
+ .bss           0x00000000        0x0 ./src/armos_init.o
+ .text          0x00000000        0x0 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crtend.o
+ .data          0x00000000        0x0 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crtend.o
+ .bss           0x00000000        0x0 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crtend.o
+ .text          0x00000000        0x0 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crtn.o
+ .data          0x00000000        0x0 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crtn.o
+ .bss           0x00000000        0x0 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crtn.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crti.o
+LOAD c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crtbegin.o
+LOAD ./src/armos.o
+LOAD ./src/armos_init.o
+START GROUP
+LOAD c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2\libgcc.a
+LOAD c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/../../../../arm-none-eabi/lib/thumb2\libc.a
+END GROUP
+LOAD c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crtend.o
+LOAD c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crtn.o
+                0x00008000                PROVIDE (__executable_start, 0x8000)
+                0x00008000                . = 0x8000
+
+.interp
+ *(.interp)
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.hash
+ *(.hash)
+
+.gnu.hash
+ *(.gnu.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.dyn        0x00008000        0x0
+ *(.rel.init)
+ *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*)
+ *(.rel.fini)
+ *(.rel.rodata .rel.rodata.* .rel.gnu.linkonce.r.*)
+ *(.rel.data.rel.ro .rel.data.rel.ro.* .rel.gnu.linkonce.d.rel.ro.*)
+ *(.rel.data .rel.data.* .rel.gnu.linkonce.d.*)
+ *(.rel.tdata .rel.tdata.* .rel.gnu.linkonce.td.*)
+ *(.rel.tbss .rel.tbss.* .rel.gnu.linkonce.tb.*)
+ *(.rel.ctors)
+ *(.rel.dtors)
+ *(.rel.got)
+ *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*)
+                0x00008000                PROVIDE (__rel_iplt_start, .)
+ *(.rel.iplt)
+ .rel.iplt      0x00000000        0x0 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crtbegin.o
+                0x00008000                PROVIDE (__rel_iplt_end, .)
+                0x00008000                PROVIDE (__rela_iplt_start, .)
+                0x00008000                PROVIDE (__rela_iplt_end, .)
+
+.rela.dyn       0x00008000        0x0
+ *(.rela.init)
+ *(.rela.text .rela.text.* .rela.gnu.linkonce.t.*)
+ *(.rela.fini)
+ *(.rela.rodata .rela.rodata.* .rela.gnu.linkonce.r.*)
+ *(.rela.data .rela.data.* .rela.gnu.linkonce.d.*)
+ *(.rela.tdata .rela.tdata.* .rela.gnu.linkonce.td.*)
+ *(.rela.tbss .rela.tbss.* .rela.gnu.linkonce.tb.*)
+ *(.rela.ctors)
+ *(.rela.dtors)
+ *(.rela.got)
+ *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
+                0x00008000                PROVIDE (__rel_iplt_start, .)
+                0x00008000                PROVIDE (__rel_iplt_end, .)
+                0x00008000                PROVIDE (__rela_iplt_start, .)
+ *(.rela.iplt)
+                0x00008000                PROVIDE (__rela_iplt_end, .)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.init           0x00008000        0xc
+ *(SORT(.init))
+ .init          0x00008000        0x4 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crti.o
+                0x00008000                _init
+ .init          0x00008004        0x8 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crtn.o
+
+.plt
+ *(.plt)
+
+.iplt           0x0000800c        0x0
+ *(.iplt)
+ .iplt          0x00000000        0x0 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crtbegin.o
+
+.text           0x0000800c       0xcc
+ *(.text.unlikely .text.*_unlikely)
+ *(.text.exit .text.exit.*)
+ *(.text.startup .text.startup.*)
+ .text.startup.main
+                0x0000800c        0x2 ./src/armos.o
+                0x0000800c                main
+ *(.text.hot .text.hot.*)
+ *(.text .stub .text.* .gnu.linkonce.t.*)
+ *fill*         0x0000800e        0x2 
+ .text          0x00008010       0xc8 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crtbegin.o
+ *(.gnu.warning)
+ *(.glue_7t)
+ .glue_7t       0x00000000        0x0 linker stubs
+ *(.glue_7)
+ .glue_7        0x00000000        0x0 linker stubs
+ *(.vfp11_veneer)
+ .vfp11_veneer  0x00000000        0x0 linker stubs
+ *(.v4_bx)
+ .v4_bx         0x00000000        0x0 linker stubs
+
+.fini           0x000080d8        0xc
+ *(SORT(.fini))
+ .fini          0x000080d8        0x4 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crti.o
+                0x000080d8                _fini
+ .fini          0x000080dc        0x8 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crtn.o
+                0x000080e4                PROVIDE (__etext, .)
+                0x000080e4                PROVIDE (_etext, .)
+                0x000080e4                PROVIDE (etext, .)
+
+.rodata
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+
+.rodata1
+ *(.rodata1)
+
+.ARM.extab
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+                0x000080e4                PROVIDE (__exidx_start, .)
+
+.ARM.exidx
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                0x000080e4                PROVIDE (__exidx_end, .)
+
+.eh_frame_hdr
+ *(.eh_frame_hdr)
+ *(.eh_frame_entry .eh_frame_entry.*)
+
+.eh_frame       0x000080e4        0x4
+ *(.eh_frame)
+ .eh_frame      0x000080e4        0x0 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crtbegin.o
+ .eh_frame      0x000080e4        0x4 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crtend.o
+ *(.eh_frame.*)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.gnu_extab
+ *(.gnu_extab*)
+
+.exception_ranges
+ *(.exception_ranges .exception_ranges*)
+                0x000100e8                . = (ALIGN (0x8000) + (. & 0x7fff))
+
+.eh_frame
+ *(.eh_frame)
+ *(.eh_frame.*)
+
+.gnu_extab
+ *(.gnu_extab)
+
+.gcc_except_table
+ *(.gcc_except_table .gcc_except_table.*)
+
+.exception_ranges
+ *(.exception_ranges .exception_ranges*)
+
+.tdata
+ *(.tdata .tdata.* .gnu.linkonce.td.*)
+
+.tbss
+ *(.tbss .tbss.* .gnu.linkonce.tb.*)
+ *(.tcommon)
+
+.preinit_array  0x000100e8        0x0
+                0x000100e8                PROVIDE (__preinit_array_start, .)
+ *(.preinit_array)
+                0x000100e8                PROVIDE (__preinit_array_end, .)
+
+.init_array     0x000100e8        0x4
+                0x000100e8                PROVIDE (__init_array_start, .)
+ *(SORT(.init_array.*))
+ *(.init_array)
+ .init_array    0x000100e8        0x4 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crtbegin.o
+                0x000100ec                PROVIDE (__init_array_end, .)
+
+.fini_array     0x000100ec        0x4
+                0x000100ec                PROVIDE (__fini_array_start, .)
+ *(SORT(.fini_array.*))
+ *(.fini_array)
+ .fini_array    0x000100ec        0x4 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crtbegin.o
+                0x000100f0                PROVIDE (__fini_array_end, .)
+
+.ctors
+ *crtbegin.o(.ctors)
+ *crtbegin?.o(.ctors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .ctors)
+ *(SORT(.ctors.*))
+ *(.ctors)
+
+.dtors
+ *crtbegin.o(.dtors)
+ *crtbegin?.o(.dtors)
+ *(EXCLUDE_FILE(*crtend?.o *crtend.o) .dtors)
+ *(SORT(.dtors.*))
+ *(.dtors)
+
+.jcr            0x000100f0        0x4
+ *(.jcr)
+ .jcr           0x000100f0        0x0 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crtbegin.o
+ .jcr           0x000100f0        0x4 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crtend.o
+
+.data.rel.ro
+ *(.data.rel.ro.local* .gnu.linkonce.d.rel.ro.local.*)
+ *(.data.rel.ro .data.rel.ro.* .gnu.linkonce.d.rel.ro.*)
+
+.dynamic
+ *(.dynamic)
+
+.got            0x000100f4        0x0
+ *(.got.plt)
+ *(.igot.plt)
+ .igot.plt      0x00000000        0x0 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crtbegin.o
+ *(.got)
+ *(.igot)
+
+.data           0x000100f4        0x0
+                0x000100f4                __data_start = .
+ *(.data .data.* .gnu.linkonce.d.*)
+
+.tm_clone_table
+                0x000100f4        0x0
+ .tm_clone_table
+                0x000100f4        0x0 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crtbegin.o
+ .tm_clone_table
+                0x000100f4        0x0 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crtend.o
+
+.data1
+ *(.data1)
+                0x000100f4                _edata = .
+                0x000100f4                PROVIDE (edata, .)
+                0x000100f4                . = .
+                0x000100f4                __bss_start = .
+                0x000100f4                __bss_start__ = .
+
+.bss            0x000100f4       0x1c
+ *(.dynbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x000100f4       0x1c c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crtbegin.o
+ *(COMMON)
+                0x00010110                . = ALIGN ((. != 0x0)?0x4:0x1)
+                0x00010110                _bss_end__ = .
+                0x00010110                __bss_end__ = .
+                0x00010110                . = ALIGN (0x4)
+                0x00010110                . = SEGMENT_START ("ldata-segment", .)
+                0x00010110                . = ALIGN (0x4)
+                0x00010110                __end__ = .
+                0x00010110                _end = .
+                0x00010110                PROVIDE (end, .)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x00000000       0x30
+ *(.comment)
+ .comment       0x00000000       0x30 ./src/armos.o
+                                 0x31 (size before relaxing)
+
+text            0x00000000       0x20
+                0x00000000                PROVIDE (__start_text, .)
+ text           0x00000000       0x20 ./src/armos_init.o
+                0x0000000c                _start
+                0x00000020                PROVIDE (__stop_text, .)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info .gnu.linkonce.wi.*)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges
+ *(.debug_ranges)
+
+.debug_macro
+ *(.debug_macro)
+
+.stack          0x00080000        0x0
+                0x00080000                _stack = .
+ *(.stack)
+
+.ARM.attributes
+                0x00000000       0x27
+ *(.ARM.attributes)
+ .ARM.attributes
+                0x00000000       0x19 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crti.o
+ .ARM.attributes
+                0x00000019       0x29 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crtbegin.o
+ .ARM.attributes
+                0x00000042       0x33 ./src/armos.o
+ .ARM.attributes
+                0x00000075       0x21 ./src/armos_init.o
+ .ARM.attributes
+                0x00000096       0x29 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crtend.o
+ .ARM.attributes
+                0x000000bf       0x19 c:/arm/toolchain/bin/../lib/gcc/arm-none-eabi/4.7.3/thumb2/crtn.o
+ *(.gnu.attributes)
+
+.note.gnu.arm.ident
+ *(.note.gnu.arm.ident)
+
+/DISCARD/
+ *(.note.GNU-stack)
+ *(.gnu_debuglink)
+ *(.gnu.lto_*)
+OUTPUT(armos.elf elf32-littlearm)
